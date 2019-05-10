@@ -1,0 +1,19 @@
+h1, p {
+  margin-top: 2em;
+  text-align: center;
+  color: blueviolet;
+}
+
+.screen-container {
+  display: flex;
+  width: 100%;
+}
+
+img {
+  display: none;
+}
+
+canvas {
+  margin: 0 auto;
+  border: 1px solid blueviolet;
+}
