@@ -1,6 +1,6 @@
-# Brick Breaker Game
+# Ngabuburit™ Break Breaker Game
 
-**The idea of this game**, I'm bored waiting my girlfriend choosing outfit on mall, so without wasting time I sit-down open laptop and get on the code, estimated time: **2.5h**.
+I'm learning canvas, and I made this game...
 
 This game is ridiculously simple, I created this game and tweak it a bit with help of [freecodecamp canvas game](https://www.youtube.com/watch?v=3EMxBkqC4z0) and this [music](https://www.youtube.com/watch?v=Z-JYwwXuO4Q) the thing that still WIP on this are **level generation algorithm**. Yes I want to genretate levels randomly.
 
