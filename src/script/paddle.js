@@ -28,7 +28,7 @@ export default class Paddle {
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
 
-  update(deltaTime) {
+  update() {
     this.position.x += this.speed
     if(this.position.x < 0) this.position.x = 0
     if(this.position.x + this.width > this.gameWidth)
