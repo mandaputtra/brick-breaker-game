@@ -1,17 +1,27 @@
 import Brick from './brick'
 
-export const level1 = [
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-  [1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-]
+function randomBrick(row) {
+  let lvl = []
+  for (let i = 0; i < row; i++) {
+    // add level
+    lvl.push([])
+    for (let k = 0; k < 12; k++) {
+      const rand = (Math.random() * 10).toFixed()
+      if (rand > 5) {
+        lvl[i].push(1)
+      } else {
+        lvl[i].push(0)
+      }
+    }
+  }
+  return lvl
+}
 
 
 export function buildLevel(game, level) {
   let bricks = []
-  level1.forEach((row, rowIndex) => {
+  const genBricks = randomBrick(level)
+  genBricks.forEach((row, rowIndex) => {
     row.forEach((brick, brickIndex) => {
       if(brick === 1) {
         let position = {

@@ -1,8 +1,7 @@
 import Paddle from './paddle'
 import InputHandler from './input'
 import Ball from './ball'
-import Brick from './brick'
-import { buildLevel, level1 } from './levels'
+import { buildLevel } from './levels'
 import RenderScreen from './render-menu-screen'
 
 const GAMESTATE = {
@@ -10,7 +9,7 @@ const GAMESTATE = {
   RUNNING: 1,
   MENU: 2,
   GAMEOVER: 3,
-  WIN: 4
+  WIN: 4,
 }
 
 export default class Game {
@@ -24,6 +23,7 @@ export default class Game {
     this.gameObject = []
     this.bricks = []
     this.lives = 1
+    this.level = 1
   }
 
   start() {
@@ -33,7 +33,7 @@ export default class Game {
       this.ball.resetPosition()
     }
     this.gameState = GAMESTATE.RUNNING
-    this.bricks = buildLevel(this, level1)
+    this.bricks = buildLevel(this, this.level)
     this.gameObject = [this.paddle, this.ball]
   }
 
@@ -47,8 +47,10 @@ export default class Game {
     ) return
     [...this.gameObject, ...this.bricks].forEach(obj => obj.update(deltaTime))
     this.bricks = this.bricks.filter(brick => !brick.deleteBrick)
+    // win condition
     if(this.bricks.length === 0) {
       this.gameState = GAMESTATE.WIN
+      this.level = this.level + 1
     }
   }
 
