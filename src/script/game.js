@@ -38,7 +38,10 @@ export default class Game {
   }
 
   update(deltaTime) {
-    if(this.lives === 0) this.gameState = GAMESTATE.GAMEOVER
+    if(this.lives === 0)  {
+      this.gameState = GAMESTATE.GAMEOVER
+      this.level = this.level > 1 ? this.level - 1 : 1
+    }
     if(
       this.gameState === GAMESTATE.PAUSED ||
       this.gameState === GAMESTATE.MENU ||

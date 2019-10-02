@@ -1,5 +1,3 @@
-import Game from "./game";
-
 export default class InputHandler {
   constructor(paddle, game) {
     document.addEventListener('keydown', event => {
@@ -25,7 +23,11 @@ export default class InputHandler {
           game.togglePause()
           break;
         case 32: // SPACE
-          game.start()
+          if (game.gameState === 1) {
+            break;
+          } else {
+            game.start()
+          }
           break;
       }
     })
